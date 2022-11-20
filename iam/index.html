@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/iam/iamstyles.css">
     <link href="https://fonts.cdnfonts.com/css/georgia" rel="stylesheet">
     <style>
 
@@ -79,7 +79,7 @@
             resultsHTML.onclick = function (event) {
                 const setValue = event.target.innerText;
                 autocomplete.value = setValue;
-                window.location.href = setValue + ".html";
+                window.location.href = "iam/" + setValue + ".html";
                 this.innerHTML = "";
             };
         </script>
