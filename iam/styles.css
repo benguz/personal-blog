@@ -24,17 +24,22 @@ iframe {
 }
 
 ul {
+    list-style-type: none;
     text-align: left;
-}
-
-ul:hover {
-    text-color: green;
+    position: absolute;
 }
 
 
-li:hover {
-    text-color: green;
+
+.item {
+
 }
+
+.item:hover {
+  background-color: Gainsboro;
+  cursor: pointer;
+}
+
 
 .container { 
     height: 600px;
