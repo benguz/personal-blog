@@ -49,7 +49,8 @@
     if (isNew) {
         localStorage.setItem("visit", ".");
     } else {
-        document.getElementById("firstvisit").remove();
+        const element = document.getElementById("firstvisit");
+        element.remove();
     }
 </script>
     <div width= "600em" max-width= "calc(100% - 10em)" id="text" class="container" style="display: flex; justify-content: center; margin-top: 2em; overflow: hidden;">
@@ -101,10 +102,10 @@
             autocomplete.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 event.preventDefault();
-                if (this.length > 0) {
+                const userInput = this.value;
+                if (userInput.length > 0) {
                     const loc = "iam/" + this.value;
                 window.location.href = loc;
-                //needs to redirect to "this page doesn't exist yet, want it adde?"
                 }
                 
             }
