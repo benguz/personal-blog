@@ -101,9 +101,12 @@
             autocomplete.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 event.preventDefault();
-                const loc = "iam/" + this.value;
+                if (this.length > 0) {
+                    const loc = "iam/" + this.value;
                 window.location.href = loc;
                 //needs to redirect to "this page doesn't exist yet, want it adde?"
+                }
+                
             }
         })
 
