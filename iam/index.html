@@ -23,6 +23,12 @@
      #container {
      width: 100%;
      }
+     div {
+        font-family: 'Roboto', sans-serif;
+     }
+     input {
+        font-family: 'Roboto', sans-serif;
+     }
      }
 
 
@@ -82,6 +88,17 @@
                 window.location.href = "iam/" + setValue + ".html";
                 this.innerHTML = "";
             };
+
+
+            autocomplete.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const loc = "iam/" + this.value;
+                window.location.href = loc;
+                //needs to redirect to "this page doesn't exist yet, want it adde?"
+            }
+        })
+
         </script>
     </div>
         <script>
