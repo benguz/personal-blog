@@ -44,8 +44,16 @@
 
   gtag('config', 'G-QXE7C5EQFM');
 </script>
+<script>
+    const isNew = localStorage.getItem("visit") == null;
+    if (isNew) {
+        localStorage.setItem("visit", ".");
+    } else {
+        document.getElementById("firstvisit").remove();
+    }
+</script>
     <div width= "600em" max-width= "calc(100% - 10em)" id="text" class="container" style="display: flex; justify-content: center; margin-top: 2em; overflow: hidden;">
-     <div class="fade-in-text">
+     <div id="firstvisit" class="fade-in-text">
         <p>I am not a student</p>
         </div>
         <div class="appear">
