@@ -44,28 +44,33 @@
 
   gtag('config', 'G-QXE7C5EQFM');
 </script>
-<script>
-    const isNew = localStorage.getItem("visit") == null;
-    if (isNew) {
-        localStorage.setItem("visit", ".");
-    } else {
-        const element = document.getElementById("firstvisit");
-        element.remove();
-    }
-</script>
+
     <div width= "600em" max-width= "calc(100% - 10em)" id="text" class="container" style="display: flex; justify-content: center; margin-top: 2em; overflow: hidden;">
      <div id="firstvisit" class="fade-in-text">
         <p>I am not a student</p>
         </div>
-        <div class="appear">
+        
+        <div id ="changefade" class="appear">
             <p style="float: left; padding: 2px;">I am <input type="text" id="autocomplete" placeholder="emotionally unavailable"></input></p> 
             <br>
             <br>
             <div>
                 <ul float="right" id="results"></ul>
             </div>
+            
         </div>
-        
+        <script>
+            const isNew = localStorage.getItem("visit") == null;
+            if (isNew) {
+                localStorage.setItem("visit", ".");
+            } else {
+                const element = document.getElementById("firstvisit");
+                element.remove();
+                const elem2 = document.getElementById("changefade");
+                elem2.classList.remove('appear');
+                elem2.classList.add('appearbasic');
+            }
+        </script>
         <script>
             const data = ["emo", "tired", "emotionally unavailable", "bored", "emotive", "emotional", "emily"];
             const autocomplete = document.getElementById("autocomplete");
