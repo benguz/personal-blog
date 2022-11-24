@@ -40,6 +40,9 @@ ul {
   cursor: pointer;
 }
 
+.relative {
+  position: relative;
+}
 
 .container { 
     height: 600px;
@@ -80,7 +83,57 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: 100%;
+
 }
+
+.result {
+background: #FFFFFF;
+border: 1.5px solid #F5F5F5;
+border-radius: 10px;
+position: absolute;
+}
+
+.wrapper {
+  display: flex;
+  
+  flex-flow: row wrap;
+}
+
+.wrapper > * {
+  flex: 1 100%;
+}
+
+@media all and (min-width: 600px) {
+  /* We tell both sidebars to share a row */
+  .aside { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars 
+   */
+  .main { flex: 3 0px; }
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+.columns {
+column-count: 2;
+}
+
+.title {
+left: 33px;
+top: 10px;
+
+font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-size: 16px;
+line-height: 19px;
+}
+
 
 input {
     font-family: Georgia, 'Times New Roman', Times, serif; 
