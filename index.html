@@ -11,31 +11,255 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
-        @media screen and (max-width: 1023px){
-  #container {
-    width: 100%;
-}
-  }
-    </style>
+        :root {
+            --accent-color: #ac2ad7;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --text-tertiary: #9ca3af;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        p {
+            font-size: 1.05rem;
+            line-height: 1.35;
+            text-align: left;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .key-terms {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 300px);
+            grid-auto-flow: column;
+            grid-auto-columns: 300px;
+            gap: 1rem;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            margin-bottom: 3rem;
+        }
+
+        .key-terms::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .term-card {
+            display: inline-block;
+            width: 300px;
+            padding: 1.5rem;
+            margin-right: 1rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            white-space: normal;
+            vertical-align: top;
+            height: 100%;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .term-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .term-card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+        .container {
+            width: 98%;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding-bottom: 8rem;
+            padding-top: 2rem;
+
+        }
+        @media (min-width: 768px) {
+            .container {
+                width: 55%;
+            }
+            body {
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem 0;
+            }
+            
+            .header .logo {
+                font-size: 1rem;
+            }
+
+            .header .articles-link {
+                font-size: 1rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0.75rem 0 0.75rem;
+            font-weight: 500;
+            line-height: 1.2;
+            text-wrap: pretty;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .caption {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            margin-top: -0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        /* Key Terms Carousel */
+        .key-terms {
+            margin: 1rem -1rem;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .key-terms::-webkit-scrollbar {
+            display: none;
+        }
+
+        .term-card {
+            display: inline-block;
+            width: 300px;
+            padding: 1.5rem;
+            margin-right: 1rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            white-space: normal;
+            vertical-align: top;
+            height: 100%;
+        }
+
+        .term-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .term-card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            padding-left: 1rem;
+            margin-top: 0;
+        }
+        li {
+            margin-bottom: 0.5rem;    
+        }
+        a {
+            color: var(--accent-color);
+        }
+        @media screen and (max-width: 768px) {
+            .term-card {
+                padding: 1rem
+            }
+            blockquote {
+                padding-left: 1rem
+            }
+
+        }
+
+    </style>
+    <script defer data-domain="blog.benguzovsky.com" src="https://plausible.io/js/script.js"></script>
   </head> 
   <body style="background-color: #F9E4D9;">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXE7C5EQFM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-QXE7C5EQFM');
-</script>
-    <div style="display: flex; justify-content: center; margin-top: 2em; overflow: hidden;" >
-    <iframe class="container" style="font-size: 1.125rem; text-align: center; border-width: 0px; border-style: none;" width="620em" max-width="calc(100% - 10em)" height="9500em" src="https://docs.google.com/document/d/e/2PACX-1vSv2LbuUM5h64LpdKw9iBDnLc0TizsfAd3ldrAT76jENJNqQNQ2kz5eRue83zhD6QSYNvADrvu5NjYi/pub?embedded=true"></iframe>
+    <div class="container">
+        <h1>
+            Writing on Schools, Motivation, and Machine Learning.  
+        </h1>
+        <p>We need more trust in schools. We need to protect kids online. We need more open source machine learning (that works).</p>
+        <ul>
+            <li>
+               [coming soon] Machine Learning is a search engine optimization problem.
+            </li>
+            <li>
+                [coming soon] Building the hard app.
+            </li>
+            <li>
+                [coming soon] Digital gardening projects.
+            </li>
+            <li>
+                <a href="https://blog.benguzovsky.com/pdfs/Capablanca Defeats Marshall's Attack - Guzovsky.pdf" target="_blank">"Capablanca Defeats Marshall's Attack"</a> — Dec 2023. A thought experiment on chess in historical time.
+            </li>
+            <li>
+                <a href="https://doorstopeducation.org/research/leveraged.pdf" target="_blank">"Learning, Leveraged by Students"</a> — Jan 2023. Culmination of my nationwide research on what students can change about their schools.</p>
+            </li>
+            <li>
+                <a href="https://blog.benguzovsky.com/potential" target="_blank">"Doorstops: Potential for more trusting schools"</a> — Sept 2022. I am traveling across the country researching how trust is built, working to empower student voices.
+            </li>
+            <li>
+                <a href="https://brief.bismarckanalysis.com/p/pakistan-shows-the-limits-of-chinas" target="_blank">"Pakistan Shows the Limits of China's Economic Power"</a> — Jun 2022. If Chinese Economic World Order doesn't work in Pakistan, will it work anywhere? 
+            </li>
+            <li>
+                <a href="https://blog.benguzovsky.com/fall_junior_paper.pdf" target="_blank">"Weighted Internationalism"</a> — Jan 2022. On hiring in the League of Nations.
+            </li>   
+            <li>
+                <a href="https://www.nasslit.com/home/2020/11/16/bot-poetry-engineering-randomness" target="_blank">"Bot Poetry: Engineering Randomness"</a> — Nov 2020. The first ever probabilistic haiku generator (just kidding - but my take on Human-Computer Interaction).
+            </li>
+            <li>On <a href="https://fix.school/scale" target="_blank">things that don't scale</a>.</li>
+        </ul>
     </div>
-    <a href="instagram://story-camera">still here? try this</a>
-
   </body>
 </html>
